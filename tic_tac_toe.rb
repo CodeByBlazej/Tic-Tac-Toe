@@ -13,5 +13,7 @@ p new_board.board[1]
 p new_board.board[2]
 
 new_board.board[0][0] = 'O'
-p new_board.board[0]
+# p new_board.board[0]
 
+new_board.board[0][1] = 'X'
+new_board.display_board
