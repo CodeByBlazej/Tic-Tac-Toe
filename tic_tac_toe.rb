@@ -18,8 +18,16 @@ new_board.board[0][0] = blazej.symbol
 new_board.board[0][1] = adam.symbol
 new_board.display_board
 
+
+
 def play_game
   kamil = Player.new('Kamil', 'O')
   tomek = Player.new('Tomek', 'X')
+  main_board = Board.new
+  main_board.display_board
+  # player_choice = gets.chomp
+  main_board.check_score
 
 end
+
+play_game
