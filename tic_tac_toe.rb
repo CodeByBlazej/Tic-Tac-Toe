@@ -26,8 +26,10 @@ def play_game
   main_board = Board.new
   main_board.display_board
   # player_choice = gets.chomp
-  main_board.check_score
-
+  p main_board.check_row_score
+  main_board.board[0][1] = kamil.symbol
+  p main_board.check_row_score
+  main_board.display_board
 end
 
 play_game
