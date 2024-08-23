@@ -27,9 +27,13 @@ def play_game
   main_board.display_board
   # player_choice = gets.chomp
   p main_board.check_row_score
+  main_board.board[0][0] = kamil.symbol
   main_board.board[0][1] = kamil.symbol
+  main_board.board[0][2] = tomek.symbol
+
   p main_board.check_row_score
   main_board.display_board
+  p main_board.check_row_score
 end
 
 play_game
