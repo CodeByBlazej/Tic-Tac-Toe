@@ -1,4 +1,4 @@
-require_relative 'players'
+# require_relative 'spec/players'
 
 class Board
   attr_accessor :board
@@ -15,8 +15,14 @@ class Board
   #   end
   # end
 
-  def check_row_score()
-    @board[0].all?(player_1.symbol)
+  # row_1 = @board[0]
+  # row_2 = @board[1]
+  # row_3 = @board[2]
+
+  def check_row_score(player)
+    @board.any? do |scores|
+      scores.all? { |score| score == player.symbol }
+    end
   end
 
   def display_board
@@ -27,4 +33,4 @@ class Board
     p @board[2]
   end
 end
-
+ 
