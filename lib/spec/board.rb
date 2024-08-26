@@ -54,10 +54,12 @@ class Board
 
   def display_board
     row_1 = @board[0].map { |element| element.nil? ? ' ' : element}
+    row_2 = @board[1].map { |element| element.nil? ? ' ' : element}
+    row_3 = @board[2].map { |element| element.nil? ? ' ' : element}
+
     p row_1
-    p @board[0]
-    p @board[1]
-    p @board[2]
+    p row_2
+    p row_3
   end
 end
  
