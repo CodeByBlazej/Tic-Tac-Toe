@@ -19,6 +19,8 @@ class Board
   # row_2 = @board[1]
   # row_3 = @board[2]
 
+  
+
   def check_row_score(player)
     @board.any? do |scores|
       scores.all? { |score| score == player.symbol }
@@ -33,7 +35,7 @@ class Board
 
   def check_diagonal_score(player)
     if (0...@board.size).all? { |i| @board[i][i] == player.symbol }
-      return player.symbol
+      return player.symbol == 'winner'
     end
   end
 
