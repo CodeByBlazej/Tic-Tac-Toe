@@ -1,4 +1,4 @@
-
+require 'pry-byebug'
 require_relative 'spec/players'
 require_relative 'spec/board'
 
@@ -30,30 +30,32 @@ require_relative 'spec/board'
   #   play_round
   # end
 
-  def play_game(player_1, player_2, main_board)
-    if main_board.board.all?(' ')
-      first_random_player = [player_1, player_2].sample
-      play_round(first_random_player, main_board)
-    elsif main_board.board.include?(player_1.symbol)
-      play_round(player_2, main_board)
-    else play_round(player_1, main_board)
+  # def play_game(player_1, player_2, main_board)
+    # binding.pry
+    
+    def play_round(player, main_board)
+      puts "#{player.name} pick the row you want..."
+      row = gets.chomp.to_i
+      puts "#{player.name} now pick the column you want..."
+      column = gets.chomp.to_i
+      main_board.board[row][column] = player.symbol
+      main_board.display_board
+      main_board.check_row_score(player)
+      main_board.check_column_score(player)
+      main_board.check_diagonal_score(player)
+      main_board.check_anti_diagonal_score(player)
     end
-  end
-
-  def play_round(player, main_board)
-    puts "#{player.name} pick the row you want..."
-    row = gets.chomp.to_i
-    puts "#{player.name} now pick the column you want..."
-    column = gets.chomp.to_i
-    main_board.board[row][column] = player.symbol
-    main_board.display_board
-    main_board.check_row_score(player)
-    main_board.check_column_score(player)
-    main_board.check_diagonal_score(player)
-    main_board.check_anti_diagonal_score(player)
-  end
-
-  play_game(player_1, player_2, main_board)
+    
+    until player_1 == 'winner' || player_2 == 'winner' do
+      if main_board.board.all? { |e| e == e }
+        first_random_player = [player_1, player_2].sample
+        play_round(first_random_player, main_board)
+      elsif main_board.board.include?(player_1.symbol)
+        play_round(player_2, main_board)
+      else play_round(player_1, main_board)
+      end
+    end
+  # play_game(player_1, player_2, main_board)
 
   # if first_random_player == player_1 
 
