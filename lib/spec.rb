@@ -46,11 +46,14 @@ require_relative 'spec/board'
       main_board.check_anti_diagonal_score(player)
     end
     
-    until player_1 == 'winner' || player_2 == 'winner' do
-      if main_board.board.all? { |e| e == e }
+    until main_board.check_row_score(player_1) do
+      binding.pry
+      if main_board.board.all? { |e| e.all?(nil) }
         first_random_player = [player_1, player_2].sample
         play_round(first_random_player, main_board)
-      elsif main_board.board.include?(player_1.symbol)
+      elsif main_board.board.each { |e| e.count}
+
+      elsif main_board.board.any? { |e| e.include?(player_1.symbol) }
         play_round(player_2, main_board)
       else play_round(player_1, main_board)
       end
