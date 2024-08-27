@@ -35,7 +35,7 @@ class Board
 
   def check_diagonal_score(player)
     if (0...@board.size).all? { |i| @board[i][i] == player.symbol }
-      return player.symbol == 'winner'
+      return player.symbol 
     end
   end
 
