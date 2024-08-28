@@ -46,18 +46,51 @@ require_relative 'spec/board'
       main_board.check_anti_diagonal_score(player)
     end
     
-    until main_board.check_row_score(player_1) do
-      binding.pry
-      if main_board.board.all? { |e| e.all?(nil) }
-        first_random_player = [player_1, player_2].sample
-        play_round(first_random_player, main_board)
-      elsif main_board.board.each { |e| e.count}
+    round_number = (1..9)
 
-      elsif main_board.board.any? { |e| e.include?(player_1.symbol) }
-        play_round(player_2, main_board)
+    # round_number.each do |round|
+    #   case round
+    #   when round.
+    #     first_random_player = [player_1, player_2].sample
+    #     play_round(first_random_player, main_board)
+    #   when round.even  
+    #   end
+    # end
+
+    first_random_player = [player_1, player_2].sample
+    
+    round_number.each do |round|
+      if round.odd?
+        play_round(first_random_player, main_board)
+      elsif round.even? && first_random_player == player_1
+      play_round(player_2, main_board) 
       else play_round(player_1, main_board)
       end
     end
+
+    # round_number.each do |round|
+    #   if main_board.board.all? { |e| e.all?(nil) }
+    #     first_random_player = [player_1, player_2].sample
+    #     play_round(first_random_player, main_board)
+    #   elsif main_board.board.any? { |e| e.include?(player_1.symbol) } && round.even?
+    #   play_round(player_2, main_board) 
+    #   else play_round(player_1, main_board)
+    #   end
+    # end
+
+    # until main_board.check_row_score(player_1) do
+    #   binding.pry
+    #   if main_board.board.all? { |e| e.all?(nil) }
+    #     first_random_player = [player_1, player_2].sample
+    #     play_round(first_random_player, main_board)
+    #   elsif main_board.board.each { |e| e.count}
+
+    #   elsif main_board.board.any? { |e| e.include?(player_1.symbol) }
+    #     play_round(player_2, main_board)
+    #   else play_round(player_1, main_board)
+    #   end
+    # end
+
   # play_game(player_1, player_2, main_board)
 
   # if first_random_player == player_1 
