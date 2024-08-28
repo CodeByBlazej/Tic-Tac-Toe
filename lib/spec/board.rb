@@ -29,19 +29,19 @@ class Board
 
   def check_column_score(player)
     (0...@board.first.size).each do |index|
-      return player.symbol if @board.all? { |row| row[index] == player.symbol }     
+      return puts "#{player.name} WON THE GAME!" if @board.all? { |row| row[index] == player.symbol }     
     end
   end
 
   def check_diagonal_score(player)
     if (0...@board.size).all? { |i| @board[i][i] == player.symbol }
-      return player.symbol 
+      return puts "#{player.name} WON THE GAME!"
     end
   end
 
   def check_anti_diagonal_score(player)
     if (0...@board.size).all? { |i| @board[i][@board.size - 1 - i] == player.symbol }
-      return player.symbol
+      return puts "#{player.name} WON THE GAME!"
     end
   end
 
