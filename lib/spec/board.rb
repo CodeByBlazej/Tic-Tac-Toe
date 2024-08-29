@@ -1,7 +1,7 @@
 # require_relative 'spec/players'
 
 class Board
-  attr_accessor :board
+  attr_accessor :board, :winner
 
   def initialize
     @board = Array.new(3) { Array.new(3) }
@@ -19,11 +19,14 @@ class Board
   # row_2 = @board[1]
   # row_3 = @board[2]
 
-  
+  @winner = false
 
   def check_row_score(player)
     @board.any? do |scores|
-      scores.all? { |score| score == player.symbol }
+      if scores.all? { |score| score == player.symbol }
+        puts "#{player.name} WON THE GAME!" 
+        @winner = true
+      end
     end
   end
 
@@ -64,4 +67,3 @@ class Board
     p row_3
   end
 end
- 
