@@ -63,9 +63,10 @@ require_relative 'spec/board'
       if round.odd?
         play_round(first_random_player, main_board)
       elsif round.even? && first_random_player == player_1
-      play_round(player_2, main_board) 
+        play_round(player_2, main_board) 
       else play_round(player_1, main_board)
       end
+      break if main_board.winner == true
     end
 
     # round_number.each do |round|
