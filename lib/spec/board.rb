@@ -19,7 +19,7 @@ class Board
   # row_2 = @board[1]
   # row_3 = @board[2]
 
-  @winner = false
+  # @winner = false
 
   def check_row_score(player)
     @board.any? do |scores|
