@@ -32,7 +32,7 @@ require_relative 'spec/board'
 
   # def play_game(player_1, player_2, main_board)
     # binding.pry
-    
+    main_board.winner = false
     def play_round(player, main_board)
       puts "#{player.name} pick the row you want..."
       row = gets.chomp.to_i
@@ -64,9 +64,14 @@ require_relative 'spec/board'
         play_round(first_random_player, main_board)
       elsif round.even? && first_random_player == player_1
         play_round(player_2, main_board) 
-      else play_round(player_1, main_board)
+      else 
+        play_round(player_1, main_board)
       end
-      break if main_board.winner == true
+      break if main_board.winner == true 
+    end
+
+    if main_board.winner == false
+     puts "You have a DRAW!"
     end
 
     # round_number.each do |round|
