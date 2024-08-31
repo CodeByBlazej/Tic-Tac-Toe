@@ -1,3 +1,4 @@
+# This class creates board
 class Board
   attr_accessor :board, :winner
 
@@ -8,7 +9,7 @@ class Board
   def check_row_score(player)
     @board.any? do |scores|
       if scores.all? { |score| score == player.symbol }
-        puts "#{player.name} WON THE GAME!" 
+        puts "#{player.name} WON THE GAME!"
         @winner = true
       end
     end
@@ -19,31 +20,31 @@ class Board
       if @board.all? { |row| row[index] == player.symbol }
         puts "#{player.name} WON THE GAME!"
         @winner = true
-      end     
+      end
     end
   end
 
   def check_diagonal_score(player)
-    if (0...@board.size).all? { |i| @board[i][i] == player.symbol }
-      puts "#{player.name} WON THE GAME!"
-      @winner = true
-    end
+    return unless (0...@board.size).all? { |i| @board[i][i] == player.symbol }
+
+    puts "#{player.name} WON THE GAME!"
+    @winner = true
   end
 
   def check_anti_diagonal_score(player)
-    if (0...@board.size).all? { |i| @board[i][@board.size - 1 - i] == player.symbol }
-      puts "#{player.name} WON THE GAME!"
-      @winner = true
-    end
+    return unless (0...@board.size).all? { |i| @board[i][@board.size - 1 - i] == player.symbol }
+
+    puts "#{player.name} WON THE GAME!"
+    @winner = true
   end
 
   def display_board
-    row_1 = @board[0].map { |element| element.nil? ? ' ' : element}
-    row_2 = @board[1].map { |element| element.nil? ? ' ' : element}
-    row_3 = @board[2].map { |element| element.nil? ? ' ' : element}
+    row1 = @board[0].map { |element| element.nil? ? " " : element }
+    row2 = @board[1].map { |element| element.nil? ? " " : element }
+    row3 = @board[2].map { |element| element.nil? ? " " : element }
 
-    p row_1
-    p row_2
-    p row_3
+    p row1
+    p row2
+    p row3
   end
 end
