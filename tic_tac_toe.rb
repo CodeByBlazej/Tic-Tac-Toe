@@ -1,4 +1,4 @@
-require_relative 'lib/spec/players'
-require_relative 'lib/spec/board'
-require_relative 'lib/spec'
+require_relative 'lib/sort/players'
+require_relative 'lib/sort/board'
+require_relative 'lib/sort'
 
