@@ -18,7 +18,7 @@ player2 = Player.new(player_2_name, player_2_symbol)
 main_board = Board.new
 main_board.display_board
 
-board.winner = false
+main_board.winner = false
 
 def play_round(player, main_board)
   puts "#{player.name} pick the row you want (0, 1 or 2)..."
@@ -31,7 +31,7 @@ def play_round(player, main_board)
     main_board.display_board
   else
     puts "This spot is already taken, please choose another one."
-    play(player, board)
+    play_round(player, main_board)
   end
 
   main_board.check_row_score(player)
@@ -46,7 +46,7 @@ first_random_player = [player1, player2].sample
 
 round_number.each do |round|
   if round.odd?
-    play_round(first_random_player, board)
+    play_round(first_random_player, main_board)
   elsif round.even? && first_random_player == player1
     play_round(player2, main_board)
   else
