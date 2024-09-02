@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require_relative 'lib/spec/players'
 require_relative 'lib/spec/board'
 require_relative 'lib/spec'
@@ -56,3 +57,8 @@ player_2 = Player.new(player_2_name, player_2_symbol)
 
 
 play_game
+=======
+require_relative "lib/sort/players"
+require_relative "lib/sort/board"
+require_relative "lib/sort"
+>>>>>>> a5a4f6c130f7fffdf02f8cbe5944116283707774
