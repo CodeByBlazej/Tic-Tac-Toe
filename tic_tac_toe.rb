@@ -1,7 +1,8 @@
 require_relative 'lib/spec/players'
 require_relative 'lib/spec/board'
+require_relative 'lib/spec'
 
-
+play_game(player_1, player_2, board)
 adam = Player.new('Adam', 'X')
 puts adam.info
 
@@ -20,12 +21,13 @@ new_board.board[0][1] = adam.symbol
 new_board.display_board
 
 
-
+############################################################
 player_1_name = gets.chomp
 player_1_symbol = gets.chomp
 
 player_2_name = gets.chomp
 player_2_symbol = gets.chomp
+
 player_1 = Player.new(player_1_name, player_1_symbol)
 player_2 = Player.new(player_2_name, player_2_symbol)
 # def play_game
@@ -37,7 +39,7 @@ player_2 = Player.new(player_2_name, player_2_symbol)
   # p check_row_score
   main_board.board[0][2] = player_1.symbol
   main_board.board[1][1] = player_1.symbol
-  main_board.board[2][0] = player_1.symbol
+  main_board.board[2][2] = player_1.symbol
   # def check_row_score
   # end
   # p check_row_score
