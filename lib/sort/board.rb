@@ -2,13 +2,13 @@
 class Board
   attr_accessor :board, :winner
 
-  def initialize
-    @board = Array.new(3) { Array.new(3) }
+  def initialize(board)
+    @board = board
     @winner = false
   end
 
   def check_row_score(player)
-    @board.any? do |scores|
+    board.any? do |scores|
       if scores.all? { |score| score == player.symbol }
         puts "#{player.name} WON THE GAME!"
         @winner = true
