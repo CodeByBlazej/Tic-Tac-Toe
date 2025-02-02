@@ -4,6 +4,7 @@ class Board
 
   def initialize
     @board = Array.new(3) { Array.new(3) }
+    @winner = false
   end
 
   def check_row_score(player)
@@ -39,9 +40,9 @@ class Board
   end
 
   def display_board
-    row1 = @board[0].map { |element| element.nil? ? " " : element }
-    row2 = @board[1].map { |element| element.nil? ? " " : element }
-    row3 = @board[2].map { |element| element.nil? ? " " : element }
+    row1 = @board[0].map { |element| element.nil? ? ' ' : element }
+    row2 = @board[1].map { |element| element.nil? ? ' ' : element }
+    row3 = @board[2].map { |element| element.nil? ? ' ' : element }
 
     p row1
     p row2
