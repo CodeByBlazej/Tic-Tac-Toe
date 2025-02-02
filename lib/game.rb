@@ -34,7 +34,7 @@ class TicTacToe
     @player1 = Player.new(@player_1_name, @player_1_symbol)
     @player2 = Player.new(@player_2_name, @player_2_symbol)
 
-    @main_board = Board.new
+    @main_board = Board.new(Array.new(3) { Array.new(3) })
     main_board.display_board
 
     # main_board.winner = false
