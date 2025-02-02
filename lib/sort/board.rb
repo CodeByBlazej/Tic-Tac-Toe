@@ -8,7 +8,7 @@ class Board
   end
 
   def check_row_score(player)
-    board.any? do |scores|
+    @board.any? do |scores|
       if scores.all? { |score| score == player.symbol }
         puts "#{player.name} WON THE GAME!"
         @winner = true
