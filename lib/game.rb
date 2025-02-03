@@ -1,7 +1,7 @@
 require_relative 'sort/players'
 require_relative 'sort/board'
 
-class TicTacToe
+class Game
   attr_reader :player1, :player2, :player_1_name, :player_1_symbol, :player_2_name, :player_2_symbol, :main_board
 
   def initialize
