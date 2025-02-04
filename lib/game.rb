@@ -15,11 +15,12 @@ class Game
   end
 
   def play_game
-    create_players
+    select_players_names_and_symbols
+    create_objects_players_and_board
     set_rounds
   end
 
-  def create_players
+  def select_players_names_and_symbols
     puts 'Select 1st player name'
     @player_1_name = gets.chomp
     puts 'Select 1st player symbol'
@@ -30,14 +31,14 @@ class Game
     puts 'Select 2nd player symbol'
     @player_2_symbol = gets.chomp
     puts "Now, let's play the game!"
+  end
 
+  def create_objects_players_and_board
     @player1 = Player.new(@player_1_name, @player_1_symbol)
     @player2 = Player.new(@player_2_name, @player_2_symbol)
 
     @main_board = Board.new(Array.new(3) { Array.new(3) })
     main_board.display_board
-
-    # main_board.winner = false
   end
 
   def set_rounds
